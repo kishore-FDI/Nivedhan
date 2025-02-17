@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { TiLocationArrow } from "react-icons/ti";
 import Link from "next/link";
 import Button from "../ui/Button";
-
+import Image from "next/image";
 const navItems = ["About", "Events", "Contact"];
 
 
@@ -52,7 +52,7 @@ const NavBar = () => {
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex size-full items-center justify-between p-4">
           <div className="flex items-center gap-7">
-            <img src="/imgs/favicon.png" alt="logo" className="w-10" />
+            <Image height={10} width={10} src="/imgs/favicon.png" alt="logo" className="w-10" />
 
             <Button
               link="https://maps.app.goo.gl/9nZRZWoZEKBZESRX7"
