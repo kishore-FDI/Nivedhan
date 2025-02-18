@@ -14,6 +14,7 @@ export default {
         "circular-web": ["circular-web", "sans-serif"],
         "robert-medium": ["robert-medium", "sans-serif"],
         "robert-regular": ["robert-regular", "sans-serif"],
+        montserrat: ['Montserrat', 'sans-serif'],
       },
       colors: {
         background: "var(--background)",

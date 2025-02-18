@@ -7,7 +7,6 @@ import Button from "../ui/Button";
 import Image from "next/image";
 const navItems = ["About", "Events", "Contact"];
 
-
 const NavBar = () => {
   const navContainerRef = useRef<HTMLDivElement>(null);
   const { y: currentScrollY } = useWindowScroll();
@@ -55,7 +54,7 @@ const NavBar = () => {
             <Image height={10} width={10} src="/imgs/favicon.png" alt="logo" className="w-10" />
 
             <Button
-              link="https://maps.app.goo.gl/9nZRZWoZEKBZESRX7"
+              link="https://maps.app.goo.gl/4o9Dh5t915Chn2sZ7"
               id="product-button"
               title="Location"
               rightIcon={<TiLocationArrow />}

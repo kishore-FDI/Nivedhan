@@ -6,9 +6,6 @@ const index = () => {
   return (
     <>
     <NavBar />
-    <div className='h-[200vh]'>
-
-    </div>
     <Hero />
     <Footer />
     </>
