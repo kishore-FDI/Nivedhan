@@ -9,6 +9,12 @@ const Hero = () => {
       <p className='text-4xl font-montserrat'>
         <span>We are a leading Retailer of Steel Products</span>
       </p>
+      <p className='text-md font-montserrat text-center'>
+        32/20, Kalingarayan Main St, NN Garden,
+      </p>
+      <p className='text-md font-montserrat text-center -mt-1'>
+      Washermanpet, Chennai, Tamil Nadu 600021
+      </p>
     </section>
   )
 }
