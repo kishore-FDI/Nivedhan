@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useLanguage, type SupportedLang } from '../hooks/useLanguage'
+import gsap from 'gsap'
 
 const Loading = () => {
   const [loadingText, setLoadingText] = useState('Want Best Quality Steel?')
   const language = useLanguage()
+  const containerRef = useRef<HTMLDivElement>(null)
+  const textRef = useRef<HTMLParagraphElement>(null)
 
   useEffect(() => {
     const CACHE_KEY = 'translatedLoadingText'
@@ -27,7 +30,6 @@ const Loading = () => {
             localStorage.setItem(`${CACHE_KEY}_${language}`, translatedText)
           }
         } catch {
-          // Fallback translations for Indian languages
           const fallbackTexts: Partial<Record<SupportedLang, string>> = {
             hi: 'क्या आप सर्वोत्तम गुणवत्ता वाली स्टील चाहते हैं?',
             bn: 'আপনি কি সেরা মানের স্টিল চান?',
@@ -53,9 +55,48 @@ const Loading = () => {
     getTranslation()
   }, [language])
 
+  useEffect(() => {
+    const container = containerRef.current;
+    const text = textRef.current;
+    if (!container || !text) return;
+  
+    const tl = gsap.timeline({ delay: 2 });
+  
+    tl.set(container, { transformOrigin: "center", left: "50%", top: "50%", x: "-50%", y: "-50%" });
+  
+    tl.to(text, {
+      opacity: 0,
+      duration: 0.3,
+    })
+      .to(container, {
+        borderRadius: "50%",
+        width: "50px",
+        height: "50px",
+        duration: 0.8,
+        ease: "power2.inOut",
+      })
+      .to(container, {
+        y: -100,
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.in",
+      });
+  
+    return () => {
+      tl.kill();
+    };
+  }, []);
+  
+  
   return (
-    <div className='fixed h-screen w-screen bg-black text-white flex justify-center items-center z-[100]'>
-      <p className='text-4xl font-montserrat'>
+    <div 
+      ref={containerRef}
+      className='fixed h-screen w-screen bg-black text-white flex justify-center items-center z-[100]'
+    >
+      <p 
+        ref={textRef}
+        className='text-4xl font-montserrat'
+      >
         {loadingText}
       </p>
     </div>
