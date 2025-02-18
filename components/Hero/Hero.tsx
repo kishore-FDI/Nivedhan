@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { FloatingDockDemo } from '@/components/ui/floating-dock'
 const Hero = () => {
   return (
     <section className='h-screen flex flex-col justify-center items-center px-4'>
@@ -15,6 +15,7 @@ const Hero = () => {
       <p className='text-sm md:text-base lg:text-md font-montserrat text-center -mt-1'>
         Washermanpet, Chennai, Tamil Nadu 600021
       </p>
+      <FloatingDockDemo/>
     </section>
   )
 }
