@@ -44,7 +44,7 @@ const BentoGrid = () => {
                             />
                             <div className='absolute bottom-0 left-0 right-0 p-2 sm:p-4 z-20'>
                                 <p className='text-white text-sm sm:text-xl md:text-2xl font-bold tracking-wider'>
-                                    {value.description}
+                                    {value.description} d
                                 </p>
                                 <div className='w-0 h-0.5 sm:h-1 bg-white transition-all duration-300 group-hover:w-full'/>
                             </div>
