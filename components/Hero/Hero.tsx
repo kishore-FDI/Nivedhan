@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useRef } from 'react'
 import { FloatingDockDemo } from '@/components/ui/floating-dock'
 import './Hero.css'
@@ -5,8 +6,9 @@ import gsap from 'gsap'
 import Lenis from '@studio-freight/lenis'
 
 // Import ScrollTrigger this way to avoid SSR issues
-let ScrollTrigger
+let ScrollTrigger: object
 if (typeof window !== 'undefined') {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   ScrollTrigger = require('gsap/ScrollTrigger').ScrollTrigger
   gsap.registerPlugin(ScrollTrigger)
 }
@@ -63,7 +65,7 @@ const Hero = () => {
     return () => {
       lenis.destroy()
       if (ScrollTrigger) {
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+        (ScrollTrigger as any).getAll().forEach((trigger: any) => trigger.kill())
       }
     }
   }, [])
