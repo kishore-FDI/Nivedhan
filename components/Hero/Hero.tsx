@@ -9,6 +9,7 @@ import Lenis from '@studio-freight/lenis'
 // Import ScrollTrigger this way to avoid SSR issues
 let ScrollTrigger: object
 if (typeof window !== 'undefined') {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   ScrollTrigger = require('gsap/ScrollTrigger').ScrollTrigger
   gsap.registerPlugin(ScrollTrigger)
 }
