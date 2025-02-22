@@ -1,3 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
+import { useEffect, useRef } from 'react';
+import Lenis from '@studio-freight/lenis';
+
 interface BentoItem {
     title: string;
     description: string;
@@ -50,17 +54,91 @@ const defaultItems: BentoItem[] = [
 ];
 
 const BentoGrid: React.FC<BentoGridProps> = ({ items = defaultItems, className = "" }) => {
+    const textRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+    useEffect(() => {
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        });
+
+        function raf(time: number) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    const target = entry.target as HTMLDivElement;
+                    const index = textRefs.current.indexOf(target);
+                    
+                    textRefs.current.forEach((ref, i) => {
+                        if (ref) {
+                            const span = ref.querySelector('span') as HTMLSpanElement;
+                            if (i !== index) {
+                                span.style.height = '0%';
+                            }
+                        }
+                    });
+
+                    if (entry.isIntersecting) {
+                        const span = target.querySelector('span') as HTMLSpanElement;
+                        const scrollPosition = window.scrollY;
+                        const elementTop = entry.boundingClientRect.top + scrollPosition;
+                        const elementHeight = entry.boundingClientRect.height;
+                        const windowHeight = window.innerHeight;
+                        
+                        const progress = (windowHeight - (elementTop - scrollPosition)) / (windowHeight + elementHeight);
+                        
+                        if (progress > 0.2 && progress < 0.5) {
+                            span.style.height = '100%';
+                        } else {
+                            span.style.height = '0%';
+                        }
+                    }
+                });
+            },
+            {
+                threshold: Array.from({ length: 20 }, (_, i) => i / 20), 
+                rootMargin: '-20% 0px -20% 0px' 
+            }
+        );
+
+        textRefs.current.forEach((ref) => {
+            if (ref) observer.observe(ref);
+        });
+
+        return () => {
+            lenis.destroy();
+            observer.disconnect();
+        };
+    }, []);
+
     return (
         <>
-            <section className="font-circular-web text-2xl mr-14 items-end flex flex-col -m-12">
-                <h1>
+            <section className="font-circular-web text-2xl mx-16  sm:flex justify-between -m-8 mb-5 sm:mt-0 mt-10 sm:text-left text-center">
+                <h1 className='text-4xl'>
                 What do we sell?
                 </h1>
-                {items && items.map((item,index)=>(
-                    <div key={index}>
+                <section className="space-y-3 flex flex-col mt-2 text-4xl">
+                    {items && items.map((item,index)=>(
+                    <div
+                        key={index}
+                        ref={(el) => {
+                            if (el) {
+                                textRefs.current[index] = el;
+                            }
+                        }}
+                        className="relative inline-block w-full"
+                    >
+                        <span className="bg-green-600 w-full h-0 absolute left-0 -z-10 transition-all duration-500 ease-out" />
                         {item.title}
                     </div>
                 ))}
+                </section>
             </section>
             <section className={`w-full py-6 sm:py-12 px-2 sm:px-4 ${className}`}>
             <div className="max-w-7xl mx-auto">
