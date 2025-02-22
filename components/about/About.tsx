@@ -27,13 +27,13 @@ const About = () => {
               key={charIndex}
               className="inline-block will-change-transform"
               variants={{
-                hidden: { y: 100, skewY: -10 }, 
+                hidden: { y: 50, skewY: -5 }, 
                 visible: { y: 0, skewY: 0 } 
               }}
               transition={{
-                duration: 0.4, // Slightly reduced duration for performance
+                duration: 0.3, // Adjusted duration for mobile responsiveness
                 ease: "easeOut",
-                delay: charIndex * 0.007, // Lower stagger delay for smoother effect
+                delay: charIndex * 0.005, // Adjusted delay for smoother effect on mobile
               }}
             >
               {char === " " ? "\u00A0" : char} {/* Preserve spaces */}
