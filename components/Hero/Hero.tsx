@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 import React, { useEffect, useRef } from 'react'
 import { FloatingDockDemo } from '@/components/ui/floating-dock'
-import './Hero.css'
+// import './Hero.css'
 import gsap from 'gsap'
 import Lenis from '@studio-freight/lenis'
 
