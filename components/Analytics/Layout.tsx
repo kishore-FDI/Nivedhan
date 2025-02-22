@@ -1,12 +1,17 @@
 import React from 'react'
-
+import ImportShipment from './ImportShipment'
+import Stats from './Stats'
 const Layout = () => {
   return (
-    <section>
-        <h1>
+    <>
+        <h1 className='sm:text-3xl text-gray-700 font-montserrat text-center'>
             Import Shipment Overview
         </h1>
-    </section>
+        <section className='mt-10  flex justify-center items-center'>
+                <ImportShipment/>
+        </section>
+        <Stats/>
+    </>
   )
 }
 
