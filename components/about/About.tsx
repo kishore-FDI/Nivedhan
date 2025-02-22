@@ -12,7 +12,7 @@ const sections = [
 
 const About = () => {
   return (
-    <div className='sm:flex min-h-[50vh]'>
+    <div className='sm:flex min-h-[20rem]'>
     <section className="space-y-1 p-4 sm:ml-10 font-circular-web flex flex-col justify-center">
       {sections.map((text, sectionIndex) => (
         <motion.p 
@@ -42,10 +42,10 @@ const About = () => {
         </motion.p>
       ))}
     </section>
-    <section className='font-circular-web text-xl rounded-full min-w-[30vw] mt-4 text-white flex flex-col justify-center'>
+    {/* <section className='font-circular-web text-xl rounded-full min-w-[30vw] mt-4 text-white flex flex-col justify-center'>
         <div className='grid grid-cols-2 bg-blue-700 rounded-t-xl p-3.5 font-semibold '>
             <h1 className='grid-cols-1'>
-                INDIAN PORT
+                COUNTRY
             </h1>
             <h1 className='grid-cols-1 '>
                 TOTAL
@@ -53,13 +53,13 @@ const About = () => {
         </div>
         <div className='grid grid-cols-2 bg-gray-100 rounded-b-xl h-[70%] pl-4 text-gray-700 mt-2'>
             <h1>
-            Chennai Sea
+            MALAYASIA
             </h1>
             <h1>
-                40
+                29
             </h1>
         </div>
-    </section>
+    </section> */}
     </div>
   )
 }

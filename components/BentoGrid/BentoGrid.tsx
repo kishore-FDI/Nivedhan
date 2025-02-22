@@ -51,7 +51,18 @@ const defaultItems: BentoItem[] = [
 
 const BentoGrid: React.FC<BentoGridProps> = ({ items = defaultItems, className = "" }) => {
     return (
-        <section className={`w-full py-6 sm:py-12 px-2 sm:px-4 ${className}`}>
+        <>
+            <section className="font-circular-web text-2xl mr-14 items-end flex flex-col -m-12">
+                <h1>
+                What do we sell?
+                </h1>
+                {items && items.map((item,index)=>(
+                    <div key={index}>
+                        {item.title}
+                    </div>
+                ))}
+            </section>
+            <section className={`w-full py-6 sm:py-12 px-2 sm:px-4 ${className}`}>
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4 auto-rows-[150px] sm:auto-rows-[160px]">
                     {items.map((item, index) => (
@@ -87,6 +98,8 @@ const BentoGrid: React.FC<BentoGridProps> = ({ items = defaultItems, className =
                 </div>
             </div>
         </section>
+        </>
+
     );
 };
 
