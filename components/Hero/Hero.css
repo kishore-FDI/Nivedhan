@@ -5,6 +5,7 @@
     background-repeat: no-repeat;
     position: relative;
     width: 100%;
+    will-change: background-position;
 }
 
 .hero::before {

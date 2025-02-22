@@ -11,7 +11,6 @@ const index = () => {
     <NavBar />
     <Hero />
     <BentoGrid />
-
     <Footer />
     </>
   )
