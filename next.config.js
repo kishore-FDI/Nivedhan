@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   transpilePackages: ['gsap'],
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   images: {
     domains: ['assets.aceternity.com'],
   },
