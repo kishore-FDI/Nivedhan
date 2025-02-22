@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { FloatingDockDemo } from '@/components/ui/floating-dock'
+import './Hero.css'
 const Hero = () => {
   return (
-    <section className='h-screen flex flex-col justify-center items-center px-4'>
+    <section className='h-screen flex flex-col justify-center items-center px-4 hero text-neutral-300' >
       <p className='text-4xl md:text-6xl lg:text-8xl font-bold font-montserrat text-center'>
-        <span>SRI BOOMAIL STEELS</span>
+        <span className='text-background'>SRI BOOMAIL STEELS</span>
       </p>
       <p className='text-xl md:text-2xl lg:text-4xl font-montserrat text-center mt-4'>
         <span>We are a leading Retailer of Steel Products</span>

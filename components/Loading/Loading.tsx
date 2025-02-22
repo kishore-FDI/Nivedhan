@@ -75,8 +75,14 @@ const Loading = () => {
         duration: 0.8,
         ease: "power2.inOut",
       })
+      // .to(container,{
+      //   height:"50vh",
+      //   duration:0.5,
+      //   ease: "power2.inOut",
+      //   transformOrigin: "bottom",
+      // })
       .to(container, {
-        y: -100,
+        y: -200,
         opacity: 0,
         duration: 0.5,
         ease: "power2.in",
