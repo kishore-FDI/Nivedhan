@@ -5,6 +5,7 @@ import Hero from '@/components/Hero/Hero'
 import Loading from '@/components/Loading/Loading'
 import BentoGrid  from '../components/BentoGrid/BentoGrid'
 import About from '@/components/about/About'
+import Layout from '@/components/Analytics/Layout'
 const index = () => {
   const defaultItems= [
     {
@@ -50,6 +51,7 @@ const index = () => {
     <Hero />
     <About/>
     <BentoGrid items={defaultItems} />
+    <Layout/>
     <Footer />
     </>
   )

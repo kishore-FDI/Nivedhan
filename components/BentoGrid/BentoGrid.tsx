@@ -93,7 +93,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({ items = defaultItems, className =
                         
                         const progress = (windowHeight - (elementTop - scrollPosition)) / (windowHeight + elementHeight);
                         
-                        if (progress > 0.2 && progress < 0.5) {
+                        if (progress > 0.1 && progress < 0.7) {
                             span.style.height = '100%';
                         } else {
                             span.style.height = '0%';
@@ -166,7 +166,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({ items = defaultItems, className =
                                 <h3 className="text-white text-sm sm:text-xl md:text-2xl font-bold tracking-wider mb-1">
                                     {item.title}
                                 </h3>
-                                <p className="text-white/80 text-xs sm:text-sm line-clamp-2 mb-2 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                                <p className="text-white/80 text-xs sm:text-sm line-clamp-2 mb-2 transform translate-y-4 opacity-100 group-hover:translate-y-0 transition-all duration-300">
                                     {item.description}
                                 </p>
                                 <div className="w-0 h-0.5 sm:h-1 bg-white transition-all duration-300 group-hover:w-full" />

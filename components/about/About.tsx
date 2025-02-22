@@ -1,16 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
 const sections = [
   "We, SRI BOOMAIL STEELS, are an Indian importer and buyer of waste and scrap of cast iron.",
   "We primarily deal with HS codes 72041000, 72042190, 72042910, 72044900, and 72045000.",
-  "Our major trading partners include Malaysia, Belgium, Japan, Mozambique, and Italy.",
+  "Our major trading partners are based in Malaysia, Belgium, Japan, Mozambique, and Italy.",
   "Our trade reports mainly contain market analysis, price analysis, port analysis, and trading partner insights.",
   "By subscribing to our reports, you can access data on product types, HS codes, Indian ports, prices, and trading partners.",
   "We have compiled data from over 80 countries to provide a comprehensive market overview."
 ];
 
 const About = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <div className='sm:flex min-h-[20rem]'>
     <section className="space-y-1 p-4 sm:ml-10 font-circular-web flex flex-col justify-center">
@@ -20,7 +33,7 @@ const About = () => {
           className="text-lg overflow-hidden will-change-transform"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }} 
+          viewport={{ once: true, amount: 0.3 }} 
         >
           {Array.from(text).map((char, charIndex) => (
             <motion.span
@@ -31,9 +44,9 @@ const About = () => {
                 visible: { y: 0, skewY: 0 } 
               }}
               transition={{
-                duration: 0.3, // Adjusted duration for mobile responsiveness
+                duration: isMobile ? 0.5 : 0.3, // Slower duration on mobile
                 ease: "easeOut",
-                delay: charIndex * 0.005, // Adjusted delay for smoother effect on mobile
+                delay: isMobile ? charIndex * 0.002 : charIndex * 0.005, // Much smaller delay on mobile
               }}
             >
               {char === " " ? "\u00A0" : char} {/* Preserve spaces */}

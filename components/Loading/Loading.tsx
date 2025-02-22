@@ -97,7 +97,7 @@ const Loading = () => {
   return (
     <div 
       ref={containerRef}
-      className='fixed h-screen w-screen bg-black text-white flex justify-center items-center z-[100]'
+      className='fixed h-screen w-screen bg-black text-white flex justify-center items-center z-[100] text-center'
     >
       <p 
         ref={textRef}
