@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from 'react'
-import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, Sector } from 'recharts'
-import { ContentType } from 'recharts/types/component/DefaultLegendContent'
-import { PieSectorDataItem } from 'recharts/types/polar/Pie'
-import { ActiveShape } from 'recharts/types/util/types'
+// import React, { useState } from 'react'
+// import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, Sector } from 'recharts'
+// import { ContentType } from 'recharts/types/component/DefaultLegendContent'
+// import { PieSectorDataItem } from 'recharts/types/polar/Pie'
+// import { ActiveShape } from 'recharts/types/util/types'
 
 const Stats = () => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null)
+  // const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
-  // Data for Indian Ports
-  const portData = [
-    { name: 'Chennai', value: 40 }
-  ]
+  // // Data for Indian Ports
+  // const portData = [
+  //   { name: 'Chennai', value: 40 }
+  // ]
 
   // Data for Countries
   const countryData = [
@@ -22,141 +22,141 @@ const Stats = () => {
     { name: 'Italy', value: 1 }
   ]
 
-  const COLORS = ['#4299E1', '#48BB78', '#F56565', '#ECC94B', '#4FD1C5']
+  // const COLORS = ['#4299E1', '#48BB78', '#F56565', '#ECC94B', '#4FD1C5']
 
   // Calculate totals for percentage calculations
-  const portTotal = portData.reduce((sum, item) => sum + item.value, 0)
-  const countryTotal = countryData.reduce((sum, item) => sum + item.value, 0)
+  // const portTotal = portData.reduce((sum, item) => sum + item.value, 0)
+  // const countryTotal = countryData.reduce((sum, item) => sum + item.value, 0)
 
   // Add total to each data point for percentage calculation
-  const portDataWithTotal = portData.map(item => ({ ...item, total: portTotal }))
-  const countryDataWithTotal = countryData.map(item => ({ ...item, total: countryTotal }))
+  // const portDataWithTotal = portData.map(item => ({ ...item, total: portTotal }))
+  // const countryDataWithTotal = countryData.map(item => ({ ...item, total: countryTotal }))
 
-  const renderActiveShape = (props: {
-    cx: number;
-    cy: number;
-    innerRadius: number;
-    outerRadius: number;
-    startAngle: number;
-    endAngle: number;
-    fill: string;
-    payload: { name: string; value: number };
-    percent: number;
-    value: number;
-  }) => {
-    const {
-      cx, cy, innerRadius, outerRadius, startAngle, endAngle,
-      fill, payload, percent, value
-    } = props;
+  // const renderActiveShape = (props: {
+  //   cx: number;
+  //   cy: number;
+  //   innerRadius: number;
+  //   outerRadius: number;
+  //   startAngle: number;
+  //   endAngle: number;
+  //   fill: string;
+  //   payload: { name: string; value: number };
+  //   percent: number;
+  //   value: number;
+  // }) => {
+  //   const {
+  //     cx, cy, innerRadius, outerRadius, startAngle, endAngle,
+  //     fill, payload, percent, value
+  //   } = props;
 
-    return (
-      <g>
-        <text 
-          x={cx} 
-          y={cy - 10} 
-          dy={8} 
-          textAnchor="middle" 
-          fill={fill} 
-          className="text-lg font-semibold"
-          style={{ opacity: 1, transition: 'opacity 0.3s ease-in-out' }}
-        >
-          {payload.name}
-        </text>
-        <text 
-          x={cx} 
-          y={cy + 10} 
-          dy={8} 
-          textAnchor="middle" 
-          fill={fill} 
-          className="text-base"
-          style={{ opacity: 1, transition: 'opacity 0.3s ease-in-out' }}
-        >
-          {value} ({(percent * 100).toFixed(1)}%)
-        </text>
-        <Sector
-          cx={cx}
-          cy={cy}
-          innerRadius={innerRadius}
-          outerRadius={outerRadius + 8}
-          startAngle={startAngle}
-          endAngle={endAngle}
-          fill={fill}
-          style={{ transition: 'all 0.3s ease-in-out' }}
-        />
-        <Sector
-          cx={cx}
-          cy={cy}
-          startAngle={startAngle}
-          endAngle={endAngle}
-          innerRadius={outerRadius + 8}
-          outerRadius={outerRadius + 10}
-          fill={fill}
-          style={{ transition: 'all 0.3s ease-in-out' }}
-        />
-      </g>
-    );
-  };
+  //   return (
+  //     <g>
+  //       <text 
+  //         x={cx} 
+  //         y={cy - 10} 
+  //         dy={8} 
+  //         textAnchor="middle" 
+  //         fill={fill} 
+  //         className="text-lg font-semibold"
+  //         style={{ opacity: 1, transition: 'opacity 0.3s ease-in-out' }}
+  //       >
+  //         {payload.name}
+  //       </text>
+  //       <text 
+  //         x={cx} 
+  //         y={cy + 10} 
+  //         dy={8} 
+  //         textAnchor="middle" 
+  //         fill={fill} 
+  //         className="text-base"
+  //         style={{ opacity: 1, transition: 'opacity 0.3s ease-in-out' }}
+  //       >
+  //         {value} ({(percent * 100).toFixed(1)}%)
+  //       </text>
+  //       <Sector
+  //         cx={cx}
+  //         cy={cy}
+  //         innerRadius={innerRadius}
+  //         outerRadius={outerRadius + 8}
+  //         startAngle={startAngle}
+  //         endAngle={endAngle}
+  //         fill={fill}
+  //         style={{ transition: 'all 0.3s ease-in-out' }}
+  //       />
+  //       <Sector
+  //         cx={cx}
+  //         cy={cy}
+  //         startAngle={startAngle}
+  //         endAngle={endAngle}
+  //         innerRadius={outerRadius + 8}
+  //         outerRadius={outerRadius + 10}
+  //         fill={fill}
+  //         style={{ transition: 'all 0.3s ease-in-out' }}
+  //       />
+  //     </g>
+  //   );
+  // };
 
-  interface TooltipProps {
-    active?: boolean;
-    payload?: Array<{
-      payload: {
-        name: string;
-        value: number;
-        total: number;
-      };
-    }>;
-  }
+  // interface TooltipProps {
+  //   active?: boolean;
+  //   payload?: Array<{
+  //     payload: {
+  //       name: string;
+  //       value: number;
+  //       total: number;
+  //     };
+  //   }>;
+  // }
 
-  const CustomTooltip = ({ active, payload }: TooltipProps) => {
-    if (active && payload && payload.length) {
-      const data = payload[0].payload;
-      return (
-        <div className="bg-white p-4 shadow-lg rounded-lg border transform transition-all duration-200 ease-in-out">
-          <p className="font-semibold text-gray-800">{data.name}</p>
-          <p className="text-blue-500 font-medium">
-            Count: {data.value}
-          </p>
-          <p className="text-gray-600">
-            Share: {((data.value / data.total) * 100).toFixed(1)}%
-          </p>
-        </div>
-      );
-    }
-    return null;
-  };
+  // const CustomTooltip = ({ active, payload }: TooltipProps) => {
+  //   if (active && payload && payload.length) {
+  //     const data = payload[0].payload;
+  //     return (
+  //       <div className="bg-white p-4 shadow-lg rounded-lg border transform transition-all duration-200 ease-in-out">
+  //         <p className="font-semibold text-gray-800">{data.name}</p>
+  //         <p className="text-blue-500 font-medium">
+  //           Count: {data.value}
+  //         </p>
+  //         <p className="text-gray-600">
+  //           Share: {((data.value / data.total) * 100).toFixed(1)}%
+  //         </p>
+  //       </div>
+  //     );
+  //   }
+  //   return null;
+  // };
 
-  interface LegendProps {
-    payload: Array<{
-      value: string;
-      color: string;
-    }>;
-  }
+  // interface LegendProps {
+  //   payload: Array<{
+  //     value: string;
+  //     color: string;
+  //   }>;
+  // }
 
-  const renderLegend = (props: LegendProps) => {
-    const { payload } = props;
-    return (
-      <ul className="flex justify-center gap-4 mt-4">
-        {payload.map((entry, index) => (
-          <li 
-            key={`item-${index}`}
-            className="flex items-center gap-2 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:opacity-80"
-            onClick={() => setActiveIndex(index)}
-          >
-            <div 
-              className="w-3 h-3 rounded-full transition-all duration-200"
-              style={{ backgroundColor: entry.color }}
-            />
-            <span className="text-sm text-gray-600">{entry.value}</span>
-          </li>
-        ))}
-      </ul>
-    );
-  };
+  // const renderLegend = (props: LegendProps) => {
+  //   const { payload } = props;
+  //   return (
+  //     <ul className="flex justify-center gap-4 mt-4">
+  //       {payload.map((entry, index) => (
+  //         <li 
+  //           key={`item-${index}`}
+  //           className="flex items-center gap-2 cursor-pointer transform transition-all duration-200 hover:scale-105 hover:opacity-80"
+  //           onClick={() => setActiveIndex(index)}
+  //         >
+  //           <div 
+  //             className="w-3 h-3 rounded-full transition-all duration-200"
+  //             style={{ backgroundColor: entry.color }}
+  //           />
+  //           <span className="text-sm text-gray-600">{entry.value}</span>
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   );
+  // };
 
-  const onPieEnter = (_: any, index: number) => {
-    setActiveIndex(index)
-  }
+  // const onPieEnter = (_: any, index: number) => {
+  //   setActiveIndex(index)
+  // }
 
   return (
     <section className='flex justify-between mx-[15%] mt-10     gap-8 mb-10'>
@@ -174,7 +174,7 @@ const Stats = () => {
             <h1 className='p-3'>40</h1>
           </div>
         </div>
-        <div className='h-[300px] mt-8'>
+        {/* <div className='h-[300px] mt-8'>
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
@@ -206,7 +206,7 @@ const Stats = () => {
               <Legend content={renderLegend as any} />
             </PieChart>
           </ResponsiveContainer>
-        </div>
+        </div> */}
       </section>
 
       <section className='w-full bg-white rounded-xl shadow-sm p-6'>
@@ -232,7 +232,7 @@ const Stats = () => {
             ))}
           </div>
         </div>
-        <div className='h-[300px] mt-8'>
+        {/* <div className='h-[300px] mt-8'>
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
@@ -264,7 +264,7 @@ const Stats = () => {
               <Legend content={renderLegend as ContentType} />
             </PieChart>
           </ResponsiveContainer>
-        </div>
+        </div> */}
       </section>
     </section>
   )
