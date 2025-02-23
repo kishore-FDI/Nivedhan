@@ -24,13 +24,25 @@ ChartJS.register(
 const ImportShipment = () => {
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: 'bottom' as const,
+        labels: {
+          boxWidth: 10,
+          padding: 20,
+          font: {
+            size: 12
+          }
+        }
       },
       title: {
         display: true,
         text: 'Import Shipments by Month',
+        font: {
+          size: 16
+        },
+        padding: 20
       },
     },
     scales: {
@@ -38,9 +50,19 @@ const ImportShipment = () => {
         beginAtZero: true,
         ticks: {
           stepSize: 1,
+          font: {
+            size: 11
+          }
         },
         max: 6,
       },
+      x: {
+        ticks: {
+          font: {
+            size: 11
+          }
+        }
+      }
     },
   };
 
@@ -55,14 +77,14 @@ const ImportShipment = () => {
         borderColor: '#007bff',
         backgroundColor: '#007bff',
         tension: 0.1,
-        pointRadius: 6,
-        pointHoverRadius: 8,
+        pointRadius: 4,
+        pointHoverRadius: 6,
       },
     ],
   };
 
   return (
-    <div className="size-[90%] w-[70%] p-4 bg-white rounded-lg shadow-md">
+    <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[70%] h-[300px] sm:h-[400px] p-2 sm:p-4 bg-white rounded-lg shadow-md">
       <Line options={options} data={data} />
     </div>
   );

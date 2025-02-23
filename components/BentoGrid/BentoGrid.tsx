@@ -144,8 +144,8 @@ const BentoGrid: React.FC<BentoGridProps> = ({ items = defaultItems, className =
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4 auto-rows-[150px] sm:auto-rows-[160px]">
                     {items.map((item, index) => (
-                        <a
-                            href={item.link}
+                        <div
+                            // href={item.link}
                             key={index}
                             className={`relative group overflow-hidden rounded-lg sm:rounded-xl ${
                                 item.span
@@ -171,7 +171,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({ items = defaultItems, className =
                                 </p>
                                 <div className="w-0 h-0.5 sm:h-1 bg-white transition-all duration-300 group-hover:w-full" />
                             </div>
-                        </a>
+                        </div>
                     ))}
                 </div>
             </div>
